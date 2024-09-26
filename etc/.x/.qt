@@ -1,0 +1,7 @@
+#!/bin/bash
+#add QT ENV
+export QT_HOME=/home/devin/QT/5.14.2/5.14.2/gcc_64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib
+export QT_PLUGIN_PATH=$QT_PLUGIN_PATH:$QT_HOME/plugins
+export QML2_IMPORT_PATH=$QML2_IMPORT_PATH:$QT_HOME/qml
+PATH=$PATH:$QT_HOME/bin

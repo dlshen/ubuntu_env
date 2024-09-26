@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#gcc
+C_INCLUDE_PATH=$C_INCLUDE_PATH:/home/devin/workspace/thirdparty/opencv-4.5.5/my_build_x86/install/include/opencv4/opencv2
+C_INCLUDE_PATH=$C_INCLUDE_PATH:/home/devin/workspace/thirdparty/cvui-2.7.0
+
+export C_INCLUDE_PATH
+
+#g++
+CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/devin/workspace/thirdparty/opencv-4.5.5/my_build_x86/install/include/opencv4/opencv2
+CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/devin/workspace/thirdparty/cvui-2.7.0
+
+export CPLUS_INCLUDE_PATH
+

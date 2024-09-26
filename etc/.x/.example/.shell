@@ -1,0 +1,6 @@
+# for while循环写在一行的示例
+
+for i in $(seq 1 20); do ps aux| grep tomcat | grep -v grep && break;sleep 5;done  #间隔5s查询tomcat进程存在，如果存在跳出循环
+while true; do ps aux | grep tomcat | grep -v grep && break;sleep 5; done
+while true;do ps aux | grep tomcat | grep -v grep && break;sleep 5;done
+

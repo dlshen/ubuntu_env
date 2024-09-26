@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function ldd-reset() {
+    export LD_LIBRARY_PATH=
+}
+
+function ldd-get() {
+    echo $LD_LIBRARY_PATH
+}
+
+function ldd-set() {
+    if [ ! $LD_LIBRARY_PATH ]; then
+		export LD_LIBRARY_PATH=$1
+	else
+		export LD_LIBRARY_PATH=$1:$LD_LIBRARY_PATH
+	fi
+	
+	if [ ! $LIBRARY_PATH ]; then
+		export LIBRARY_PATH=$1
+	else
+		export LIBRARY_PATH=$1:$LIBRARY_PATH
+	fi
+}
+
+
+

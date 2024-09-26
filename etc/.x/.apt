@@ -1,0 +1,21 @@
+alias apt-update-and-upgrade="sudo apt update && sudo apt upgrade"
+alias apt-install="sudo apt-get install --yes --no-install-recomends"
+
+
+# remove installed program
+function apt-uninstall() {
+    program=$1
+    sudo apt remove $program
+    sudo apt purge $program
+    sudo apt autoremove $program
+    sudo apt clean
+}
+
+
+# check if installed
+function apt-check-install() {
+    program=$1
+    apt list -- installed | grep $program
+}
+
+

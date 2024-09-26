@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export PATH=/usr/local/aarch64/bin:$PATH
+
+export CC=aarch64-none-linux-gnu-gcc
+export CXX=aarch64-none-linux-gnu-g++
+export LD=aarch64-none-linux-gnu-ld
+export AR=aarch64-none-linux-gnu-ar
+export RANLIB=aarch64-none-linux-gnu-ranlib

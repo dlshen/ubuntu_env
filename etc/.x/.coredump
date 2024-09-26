@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# 为了开启core dump，我们需要打开系统的软限制(soft limits)
+# -S soft limit
+# -c 指定core dump大小
+# 想要永久的打开core dump，可以在 /etc/security/limits.conf 文件中添加下面这一句：
+# soft core unlimited
+# 想永久地改变core dump文件的路径，我们可以在/etc/sysctl.conf文件中添加下面的代码：
+# kernel.core_pattern="/coredumps/core-%e-%s-%u-%g-%p-%t"
+# 
+function coredump_open() {
+	ulimit -S -c unlimited
+
+	#%%：一个%字符
+	#%p：dumped进程的PID
+	#%u：dumped进程的真实UID
+	#%g：dumped进程的真实GID
+	#%s：致使dump的信号编号
+	#%t：dump的时间，精确到秒
+	#%h：hostname
+	#%e：可执行文件名
+	#%c：core file大小的限制
+	mkdir -p /tmp/coredumps
+	sudo sysctl -w kernel.core_pattern=/tmp/coredumps/core-%e-%s-%u-%g-%p-%t
+}
+
+# core dump文件会占用磁盘空间而且可能会包含一些敏感数据，因此有的时候需要关闭它
+# 想要永久的关闭core dump，我们可以在 /etc/security/limits.conf 文件中添加下面内容：
+# soft core 0
+# hard core 0
+function coredump_close() {
+	ulimit -S -c 0
+}
+
+
+
+
